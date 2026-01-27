@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+*.bat
+README.md
+GIT_DEPLOY_GUIDE.md
+RESUME_SETUP.md
+SETUP_INSTRUCTIONS.md
+portfolio_app.py
