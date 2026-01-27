@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kshitij Panchal - Portfolio</title>
+    <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Landing Page with Closed Book -->
+    <div id="landing" class="landing active">
+        <div class="landing-content">
+            <h1 class="main-title">KSHITIJ PANCHAL</h1>
+            <p class="main-subtitle">Data Scientist & Analyst</p>
+            
+            <div class="book-3d" id="closedBook">
+                <div class="book-left-side"></div>
+                <div class="book-pages-stack">
+                    <div class="page-edge" style="transform: translateX(-2px);"></div>
+                    <div class="page-edge" style="transform: translateX(-4px);"></div>
+                    <div class="page-edge" style="transform: translateX(-6px);"></div>
+                    <div class="page-edge" style="transform: translateX(-8px);"></div>
+                </div>
+                <div class="book-front">
+                    <h2>PORTFOLIO</h2>
+                    <div class="year">2026</div>
+                    <i class="fas fa-chart-line book-icon"></i>
+                </div>
+            </div>
+            
+            <p class="click-hint">Click on the book to open</p>
+        </div>
+    </div>
+
+    <!-- Opened Book with Flipping Pages -->
+    <div id="bookOpen" class="book-open">
+        <button class="close-btn" id="closeBtn">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="book-container">
+            <div id="book" class="book">
+                <!-- Left Page (Fixed) -->
+                <div class="page-left">
+                    <div class="page-content" id="leftContent">
+                        <!-- Content will be dynamically inserted -->
+                    </div>
+                </div>
+
+                <!-- Right Page (Flips) -->
+                <div class="page-right" id="rightPage">
+                    <div class="page-content" id="rightContent">
+                        <!-- Content will be dynamically inserted -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="page-number" id="pageNum">1 / 6</span>
+                <button class="nav-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content Templates -->
+    <div id="pageData" style="display: none;">
+        <!-- Page 1 - Cover -->
+        <div class="page-template" data-page="1" data-side="left">
+            <div class="cover-content">
+                <h1>KSHITIJ<br>PANCHAL</h1>
+                <div class="cover-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>Data Science<br>Portfolio</h2>
+                <p class="year">2026</p>
+            </div>
+        </div>
+
+        <div class="page-template" data-page="1" data-side="right">
+            <div class="intro-page">
+                <div class="profile-circle">
+                    <img src="images/profile.jpg" alt="Kshitij" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="profile-placeholder" style="display: none;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <h2>Hello! 👋</h2>
+                <p class="typing-text">I'm a passionate data scientist transforming numbers into insights.</p>
+                <p class="tagline">✨ Turning Data into Decisions | Stories into Solutions ✨</p>
+                <div class="fun-fact">💭 <em>"In data we trust, in insights we grow"</em></div>
+                <div class="social-icons">
+                    <a href="https://github.com/Kshitij-p14" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/kshitijpanchal" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://kaggle.com/kshitijpanchal" target="_blank"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://www.youtube.com/@ConceptCrafter14" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://open.spotify.com/show/7ikQed5MSWEKMclQWWf2O4?si=dae74c6bc8054bd0" target="_blank"><i class="fab fa-spotify"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2 - About & Skills -->
+        <div class="page-template" data-page="2" data-side="left">
+            <h2 class="page-heading">About Me 🚀</h2>
+            <div class="about-photo-container">
+                <img src="images/about.jpg" alt="About Me" class="about-img" onerror="this.style.display='none'">
+            </div>
+            <p>I'm a dedicated student pursuing a career in <strong>Data Science and Analysis</strong>.</p>
+            <p>My journey into data began with <em>curiosity</em> about how numbers tell stories and drive decision-making.</p>
+            <p class="animated-paragraph">🌟 I believe every dataset has a story waiting to be told. Through visualization, analysis, and machine learning, I bring these stories to life!</p>
+            <blockquote class="creative-quote">
+                "Data is the new oil, but insights are the refined fuel that powers innovation."
+            </blockquote>
+            <div class="highlight-box">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <p><strong>Your University</strong></p>
+                <p>Data Science & Analytics</p>
+                <p class="muted">🎓 Expected: 2026</p>
+            </div>
+        </div>
+
+        <div class="page-template" data-page="2" data-side="right">
+            <h2 class="page-heading">Skills 💡</h2>
+            <div class="skill-category animated-skill">
+                <h3><i class="fas fa-code"></i> Languages</h3>
+                <p class="skill-desc">My weapons of choice for data magic ⚡</p>
+                <div class="tags">
+                    <span>🐍 Python</span>
+                    <span>📊 R</span>
+                    <span>🗄️ SQL</span>
+                    <span>☕ Java</span>
+                </div>
+            </div>
+            <div class="skill-category animated-skill">
+                <h3><i class="fas fa-brain"></i> ML & AI</h3>
+                <p class="skill-desc">Building intelligent systems that learn and adapt 🤖</p>
+                <div class="tags">
+                    <span>TensorFlow</span>
+                    <span>PyTorch</span>
+                    <span>Scikit-learn</span>
+                    <span>Keras</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-bar"></i> Visualization</h3>
+                <div class="tags">
+                    <span>Matplotlib</span>
+                    <span>Seaborn</span>
+                    <span>Tableau</span>
+                    <span>Power BI</span>
+                </div>
+            </div>
+            <div class="skill-category animated-skill">
+                <h3><i class="fas fa-brain"></i> ML & AI</h3>
+                <p class="skill-desc">Building intelligent systems that learn and adapt 🤖</p>
+                <div class="tags">
+                    <span>Git</span>
+                    <span>Docker</span>
+                    <span>Jupyter</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3 - Projects 1 -->
+        <div class="page-template" data-page="3" data-side="left">
+            <h2 class="page-heading">Projects</h2>
+            <div class="project-item">
+                <div class="project-showcase">
+                    <img src="images/project1.jpg" alt="Sales Forecasting" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                </div>
+                <h3>📈 Sales Forecasting</h3>
+                <p>Time series model using LSTM with <strong>92% accuracy</strong></p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>LSTM</span>
+                    <span>Plotly</span>
+                </div>
+                <a href="https://github.com/Kshitij-p14" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <div class="page-template" data-page="3" data-side="right">
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-comments"></i></div>
+                <h3>Sentiment Analysis</h3>
+                <p>NLP model using BERT with 88% accuracy</p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>BERT</span>
+                </div>
+                <a href="https://github.com/Kshitij-p14" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-users"></i></div>
+                <h3>Customer Segmentation</h3>
+                <p>K-Means clustering analysis</p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>K-Means</span>
+                </div>
+                <a href="https://github.com/Kshitij-p14" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Page 4 - Projects 2 -->
+        <div class="page-template" data-page="4" data-side="left">
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-heartbeat"></i></div>
+                <h3>Disease Prediction</h3>
+                <p>ML model using XGBoost with 90% precision</p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>XGBoost</span>
+                    <span>Pandas</span>
+                </div>
+                <a href="https://github.com/Kshitij-p14" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <div class="page-template" data-page="4" data-side="right">
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-chart-pie"></i></div>
+                <h3>Data Dashboard</h3>
+                <p>Interactive analytics using Streamlit</p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>Streamlit</span>
+                    <span>SQL</span>
+                </div>
+                <a href="https://github.com/Kshitij-p14" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-image"></i></div>
+                <h3>Image Classification</h3>
+                <p>CNN model with 94% accuracy</p>
+                <div class="project-tags">
+                    <span>TensorFlow</span>
+                    <span>CNN</span>
+                </div>
+                <a href="https://github.com/Kshitij-p14" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Page 5 - Contact -->
+        <div class="page-template" data-page="5" data-side="left">
+            <h2 class="page-heading">Get In Touch 📬</h2>
+            <p>I'm actively seeking opportunities in data science and analysis. <strong>Let's connect!</strong></p>
+            <div class="contact-photo-grid">
+                <img src="images/workspace.jpg" alt="My Workspace" class="workspace-img" onerror="this.style.display='none'">
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <strong>📧 Email</strong>
+                    <p>kshitij.panchal@example.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>📍 Location</strong>
+                    <p>🇮🇳 India</p>
+                </div>
+            </div>
+            <div class="social-links-large">
+                <a href="https://github.com/Kshitij-p14" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/kshitijpanchal" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://kaggle.com/kshitijpanchal" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                <a href="https://www.youtube.com/@ConceptCrafter14" target="_blank" title="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/show/7ikQed5MSWEKMclQWWf2O4" target="_blank" title="Spotify Podcast"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+
+        <div class="page-template" data-page="5" data-side="right">
+            <div class="back-cover">
+                <div class="back-pattern"></div>
+                <i class="fas fa-database"></i>
+                <h3>Thank You! 🙏</h3>
+                <p class="back-quote">"Data is the new oil, but insights are the refined fuel."</p>
+                <p>&copy; 2026 Kshitij Panchal</p>
+                <p class="tagline">✨ Data Science Portfolio ✨</p>
+                <div class="back-badge">Made with ❤️ & ☕</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="book.js"></script>
+</body>
+</html>

@@ -1,0 +1,1121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+    --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.18);
+    --shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.24);
+    --shadow-xl: 0 24px 96px rgba(0, 0, 0, 0.32);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite;
+}
+
+/* ==================== LANDING PAGE ==================== */
+.landing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s, transform 0.8s;
+    z-index: 1000;
+}
+
+.landing.hide {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particles::before,
+.particles::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: float-particles 15s infinite;
+}
+
+.particles::before {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.particles::after {
+    top: 60%;
+    left: 70%;
+    animation-delay: 7s;
+}
+
+.landing-content {
+    text-align: center;
+    color: white;
+}
+
+.main-title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: 4px;
+    text-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s ease;
+}
+
+.main-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 4rem;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+/* 3D BOOK ON LANDING */
+.book-3d {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    margin: 0 auto 2rem;
+    perspective: 2000px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    animation: bookFloat 3s ease-in-out infinite, fadeInUp 1s ease 0.6s both;
+}
+
+.book-3d:hover {
+    transform: rotateY(-15deg) rotateX(5deg) scale(1.05);
+}
+
+.book-left-side {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    background: linear-gradient(90deg, #4a2b7c 0%, #5d3a9b 100%);
+    border-radius: 5px 0 0 5px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.book-pages-stack {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 10px;
+    height: calc(100% - 10px);
+}
+
+.page-edge {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    border-right: 1px solid #ddd;
+}
+
+.book-front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 2rem;
+    box-shadow: 
+        10px 10px 40px rgba(0, 0, 0, 0.4),
+        inset 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+.book-front h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 8px;
+    margin-bottom: 1rem;
+}
+
+.book-icon {
+    font-size: 4rem;
+    margin: 2rem 0;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+.book-front .year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-top: 1rem;
+}
+
+.click-hint {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    animation: blink 2s ease-in-out infinite, fadeInUp 1s ease 0.9s both;
+}
+
+/* ==================== OPENED BOOK ==================== */
+.book-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s;
+    z-index: 999;
+}
+
+.animated-pen {
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    font-size: 2.5rem;
+    animation: writing 3s ease-in-out infinite;
+    z-index: 10;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    pointer-events: none;
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particles::before,
+.particles::after {
+    content: '✨';
+    position: absolute;
+    font-size: 20px;
+    animation: float-particles 15s infinite;
+}
+
+.particles::before {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.particles::after {
+    top: 60%;
+    left: 70%;
+    animation-delay: 7s;
+}
+}
+
+.book-open.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.close-btn {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2000;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.book-container {
+    position: relative;
+    perspective: 2000px;
+}
+
+.book {
+    width: 900px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+}
+
+.page-left,
+.page-right {
+    width: 50%;
+    height: 100%;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-left {
+    border-radius: 10px 0 0 10px;
+    box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.page-right {
+    border-radius: 0 10px 10px 0;
+    box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.1);
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.65, 0.05, 0.36, 1);
+    backface-visibility: hidden;
+}
+
+.page-right.flipping {
+    transform: rotateY(-180deg);
+}
+
+.page-content {
+    padding: 3rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.page-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.page-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+/* ==================== PAGE CONTENT STYLES ==================== */
+.page-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    animation: slideInRight 0.8s ease;
+}
+
+.creative-quote {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.creative-quote::before {
+    content: '\201C';
+    font-size: 4rem;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    opacity: 0.3;
+}
+
+.animated-paragraph {
+    animation: fadeInUp 1s ease 0.5s both;
+    font-weight: 500;
+    color: #555;
+}
+
+.skill-desc {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease;
+}
+
+.animated-skill {
+    animation: slideInLeft 0.8s ease;
+    transition: transform 0.3s;
+}
+
+.animated-skill:hover {
+    transform: translateX(10px);
+}
+
+.typing-text {
+    display: inline-block;
+    border-right: 3px solid #667eea;
+    animation: typing 3s steps(50) 1s both, blink 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #764ba2;
+    margin: 1rem 0;
+    font-weight: 500;
+    animation: fadeIn 2s ease 1.5s both;
+}
+
+.fun-fact {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    border-left: 4px solid #667eea;
+    animation: slideInLeft 1s ease 2s both;
+}
+
+.cover-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.cover-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.cover-icon {
+    font-size: 5rem;
+    margin: 2rem 0;
+}
+
+.cover-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.cover-content .year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.intro-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: white;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+    animation: profilePulse 3s ease-in-out infinite;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: white;
+}
+
+.intro-page h2 {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.about-photo-container {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.about-photo-container:hover .about-img {
+    transform: scale(1.05);
+}
+
+.contact-photo-grid {
+    width: 100%;
+    height: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.workspace-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.1);
+}
+
+.intro-page p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 4px solid #667eea;
+}
+
+.highlight-box h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.highlight-box p {
+    margin: 0.3rem 0;
+    color: #555;
+}
+
+.muted {
+    color: #999 !important;
+    font-style: italic;
+}
+
+.skill-category {
+    margin-bottom: 2rem;
+}
+
+.skill-category h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags span {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: default;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.tags span:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.project-item {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid transparent;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.project-showcase {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    position: relative;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-showcase .project-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: white;
+    margin: 0;
+}
+
+.project-item h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.project-item p {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags span {
+    background: white;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+.project-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 0.3s;
+}
+
+.project-link:hover {
+    transform: translateY(-3px);
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 10px;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: #667eea;
+}
+
+.contact-item strong {
+    display: block;
+    color: #667eea;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    color: #666;
+    margin: 0;
+}
+
+.social-links-large {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.social-links-large a {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.social-links-large a:hover {
+    transform: translateY(-5px);
+}
+
+.back-cover {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.back-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px);
+    opacity: 0.3;
+}
+
+.back-cover > * {
+    position: relative;
+    z-index: 2;
+}
+
+.back-cover h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    font-weight: 700;
+}
+
+.back-quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 300px;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+}
+
+.back-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    backdrop-filter: blur(10px);
+}
+
+.back-cover i {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.back-cover p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.tagline {
+    font-size: 1rem !important;
+    opacity: 0.8;
+    margin-top: 1rem !important;
+}
+
+/* ==================== NAVIGATION ==================== */
+.nav-buttons {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: white;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.page-number {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes bookFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes profilePulse {
+    0%, 100% { 
+        box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+    }
+    50% { 
+        box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
+    }
+}
+
+@keyframes float-particles {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, -100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes writing {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(-15deg);
+    }
+    75% {
+        transform: translateY(20px) rotate(15deg);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.5; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 960px) {
+    .book {
+        width: 700px;
+        height: 500px;
+    }
+    
+    .main-title {
+        font-size: 3.5rem;
+    }
+}
+
+/* ==================== NEW ANIMATIONS ==================== */
+@keyframes float-particles {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, -100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes typing {
+    from { 
+        width: 0; 
+        border-right-color: #667eea;
+    }
+    to { 
+        width: 100%; 
+        border-right-color: #667eea;
+    }
+}
+
+@keyframes blink {
+    50% { border-right-color: transparent; }
+}
+
+@keyframes writing {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(-15deg);
+    }
+    75% {
+        transform: translateY(20px) rotate(15deg);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.8), 0 0 30px rgba(102, 126, 234, 0.6);
+    }
+}
+
+@media (max-width: 760px) {
+    .book {
+        width: 90vw;
+        height: 70vh;
+        flex-direction: column;
+    }
+    
+    .page-left,
+    .page-right {
+        width: 100%;
+        height: 50%;
+    }
+    
+    .page-content {
+        padding: 2rem;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .animated-pen {
+        display: none;
+    }
+}

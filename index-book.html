@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kshitij Panchal - Data Science Portfolio">
+    <title>Kshitij Panchal - Data Science Portfolio</title>
+    <link rel="stylesheet" href="styles-book.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing" class="landing-page active">
+        <div class="landing-content">
+            <div class="book-container" id="closedBook">
+                <div class="book-cover">
+                    <div class="book-spine"></div>
+                    <div class="book-front">
+                        <div class="name-tag">
+                            <div class="tag-header">HELLO</div>
+                            <div class="tag-subtext">my name is</div>
+                            <div class="tag-name">Kshitij</div>
+                        </div>
+                        <p class="role-text">Data Scientist & Analyst</p>
+                    </div>
+                </div>
+                <p class="click-hint">Click to know more about me</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Pages -->
+    <section id="book" class="book-section">
+        <button class="close-book" id="closeBook">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="book-wrapper">
+            <div class="book" id="flipBook">
+                <!-- Page 1 & 2 (Cover + Intro) -->
+                <div class="page-spread" data-page="1">
+                    <div class="page page-left cover-page">
+                        <div class="page-content">
+                            <div class="name-tag-large">
+                                <div class="tag-header">HELLO</div>
+                                <div class="tag-subtext">my name is</div>
+                                <div class="tag-name">Kshitij</div>
+                            </div>
+                            <p class="cover-role">Data Scientist & Analyst</p>
+                        </div>
+                    </div>
+                    <div class="page page-right">
+                        <div class="page-content">
+                            <div class="intro-section">
+                                <div class="profile-illustration">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="intro-text">
+                                    <p class="intro-line">I'm a passionate data scientist</p>
+                                    <p class="intro-line">turning numbers into stories.</p>
+                                    <br>
+                                    <p class="intro-detail">I don't use this portfolio to explain my work.</p>
+                                    <p class="intro-detail">I use it to explain how I arrived at it:</p>
+                                    <ul class="intro-list">
+                                        <li>• What I notice</li>
+                                        <li>• What I analyze</li>
+                                        <li>• What I keep exploring</li>
+                                    </ul>
+                                    <br>
+                                    <p class="intro-detail">I'm drawn to tools that feel less like</p>
+                                    <p class="intro-detail">instruments and more like collaborators.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 3 & 4 (About + Education) -->
+                <div class="page-spread" data-page="2">
+                    <div class="page page-left">
+                        <div class="page-content">
+                            <h2 class="page-title">About Me</h2>
+                            <div class="about-illustration">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="about-text">
+                                <p>I'm a dedicated student pursuing a career in Data Science and Analysis.</p>
+                                <br>
+                                <p>My journey began with curiosity about how data tells stories and drives decisions.</p>
+                                <br>
+                                <p>Through academic projects and self-learning, I've developed strong skills in:</p>
+                                <ul class="skills-quick">
+                                    <li>→ Statistical Analysis</li>
+                                    <li>→ Machine Learning</li>
+                                    <li>→ Data Visualization</li>
+                                    <li>→ Python & SQL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-right">
+                        <div class="page-content">
+                            <h2 class="page-title">Education</h2>
+                            <div class="education-illustration">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="education-details">
+                                <div class="edu-item">
+                                    <h3>Your University</h3>
+                                    <p class="degree">Data Science & Analytics</p>
+                                    <p class="year">Expected: 2026</p>
+                                </div>
+                                <br>
+                                <div class="motivation">
+                                    <p><strong>My Goal:</strong></p>
+                                    <p>I studied data science and machine learning to get closer to understanding how intelligent systems work.</p>
+                                    <br>
+                                    <p>I learned how systems worked. I wanted to shape how they felt.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 5 & 6 (Skills) -->
+                <div class="page-spread" data-page="3">
+                    <div class="page page-left">
+                        <div class="page-content">
+                            <h2 class="page-title">Technical Skills</h2>
+                            <div class="skills-grid-page">
+                                <div class="skill-group">
+                                    <h4><i class="fas fa-code"></i> Languages</h4>
+                                    <div class="skill-tags">
+                                        <span>Python</span>
+                                        <span>R</span>
+                                        <span>SQL</span>
+                                        <span>Java</span>
+                                    </div>
+                                </div>
+                                <div class="skill-group">
+                                    <h4><i class="fas fa-brain"></i> ML/AI</h4>
+                                    <div class="skill-tags">
+                                        <span>Scikit-learn</span>
+                                        <span>TensorFlow</span>
+                                        <span>PyTorch</span>
+                                        <span>Keras</span>
+                                    </div>
+                                </div>
+                                <div class="skill-group">
+                                    <h4><i class="fas fa-chart-line"></i> Visualization</h4>
+                                    <div class="skill-tags">
+                                        <span>Matplotlib</span>
+                                        <span>Seaborn</span>
+                                        <span>Plotly</span>
+                                        <span>Tableau</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-right">
+                        <div class="page-content">
+                            <h2 class="page-title">More Skills</h2>
+                            <div class="skills-grid-page">
+                                <div class="skill-group">
+                                    <h4><i class="fas fa-database"></i> Data Analysis</h4>
+                                    <div class="skill-tags">
+                                        <span>Pandas</span>
+                                        <span>NumPy</span>
+                                        <span>Excel</span>
+                                        <span>Statistics</span>
+                                    </div>
+                                </div>
+                                <div class="skill-group">
+                                    <h4><i class="fas fa-tools"></i> Tools</h4>
+                                    <div class="skill-tags">
+                                        <span>Jupyter</span>
+                                        <span>Git</span>
+                                        <span>Docker</span>
+                                        <span>AWS</span>
+                                    </div>
+                                </div>
+                                <div class="skill-group">
+                                    <h4><i class="fas fa-project-diagram"></i> Specializations</h4>
+                                    <div class="skill-tags">
+                                        <span>NLP</span>
+                                        <span>Time Series</span>
+                                        <span>A/B Testing</span>
+                                        <span>EDA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 7 & 8 (Projects 1-2) -->
+                <div class="page-spread" data-page="4">
+                    <div class="page page-left">
+                        <div class="page-content">
+                            <h2 class="page-title">Featured Projects</h2>
+                            <div class="project-page">
+                                <div class="project-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <h3>Sales Forecasting Model</h3>
+                                <p class="project-desc">
+                                    Built a time series forecasting model using ARIMA and LSTM to predict 
+                                    sales trends with 92% accuracy.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>LSTM</span>
+                                    <span>Time Series</span>
+                                </div>
+                                <a href="https://github.com/Kshitij-p14" class="project-link-page">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-right">
+                        <div class="page-content">
+                            <div class="project-page">
+                                <div class="project-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3>Customer Sentiment Analysis</h3>
+                                <p class="project-desc">
+                                    Developed NLP model to analyze customer reviews and classify sentiment. 
+                                    Achieved 88% accuracy using BERT transformer.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>NLP</span>
+                                    <span>BERT</span>
+                                </div>
+                                <a href="https://github.com/Kshitij-p14" class="project-link-page">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 9 & 10 (Projects 3-4) -->
+                <div class="page-spread" data-page="5">
+                    <div class="page page-left">
+                        <div class="page-content">
+                            <div class="project-page">
+                                <div class="project-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Customer Segmentation</h3>
+                                <p class="project-desc">
+                                    Performed clustering analysis using K-Means and hierarchical clustering. 
+                                    Identified 5 distinct customer segments.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>K-Means</span>
+                                    <span>EDA</span>
+                                </div>
+                                <a href="https://github.com/Kshitij-p14" class="project-link-page">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-right">
+                        <div class="page-content">
+                            <div class="project-page">
+                                <div class="project-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <h3>Disease Prediction System</h3>
+                                <p class="project-desc">
+                                    Created ML model to predict disease risk. Implemented Random Forest 
+                                    and XGBoost classifiers with 90% precision.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>XGBoost</span>
+                                    <span>Pandas</span>
+                                </div>
+                                <a href="https://github.com/Kshitij-p14" class="project-link-page">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 11 & 12 (Contact) -->
+                <div class="page-spread" data-page="6">
+                    <div class="page page-left">
+                        <div class="page-content">
+                            <h2 class="page-title">Let's Connect</h2>
+                            <div class="contact-page">
+                                <p class="contact-intro">
+                                    I'm actively seeking opportunities in data science and analysis.
+                                </p>
+                                <br>
+                                <div class="contact-info-page">
+                                    <div class="contact-item-page">
+                                        <i class="fas fa-envelope"></i>
+                                        <div>
+                                            <strong>Email</strong>
+                                            <p>kshitij.panchal@example.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item-page">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div>
+                                            <strong>Location</strong>
+                                            <p>Your City, India</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-right back-cover">
+                        <div class="page-content">
+                            <h2 class="page-title">Find Me Online</h2>
+                            <div class="social-page">
+                                <a href="https://github.com/Kshitij-p14" target="_blank" class="social-link-page">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/kshitijpanchal" target="_blank" class="social-link-page">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://kaggle.com/kshitijpanchal" target="_blank" class="social-link-page">
+                                    <i class="fab fa-kaggle"></i>
+                                    <span>Kaggle</span>
+                                </a>
+                                <a href="mailto:kshitij.panchal@example.com" class="social-link-page">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                </a>
+                            </div>
+                            <br><br>
+                            <p class="thanks-note">Thank you for reading!</p>
+                            <p class="copyright">© 2026 Kshitij Panchal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="book-nav">
+                <button class="nav-btn prev-btn" id="prevPage" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="page-indicator" id="pageIndicator">Page 1 of 6</span>
+                <button class="nav-btn next-btn" id="nextPage">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script-book.js"></script>
+</body>
+</html>
