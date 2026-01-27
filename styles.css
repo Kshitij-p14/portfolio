@@ -1,7 +1,16 @@
 /* ========================================
-   Global Styles & Variables
+   Tailwind Base Styles (for vanilla CSS)
    ======================================== */
 :root {
+    /* Cinematic Foundation */
+    --bg-dark: #050505;
+    --accent-cyan: #00f2ff;
+    --accent-blue: #3b82f6;
+    --text-dim: #9ca3af;
+    --x: 50%;
+    --y: 50%;
+    
+    /* Original Variables (kept for compatibility) */
     --primary-color: #2563eb;
     --secondary-color: #3b82f6;
     --accent-color: #60a5fa;
@@ -30,11 +39,13 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-primary);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -634,6 +645,26 @@ section {
     }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.05);
+    }
+}
+
 /* ========================================
    Responsive Design
    ======================================== */
@@ -696,6 +727,11 @@ section {
     .contact-content {
         grid-template-columns: 1fr;
     }
+
+    /* Cinematic hero responsive */
+    .hero-content h1 {
+        font-size: 2.5rem !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -714,6 +750,15 @@ section {
     .skill-category,
     .project-card {
         padding: 1.5rem;
+    }
+
+    /* Cinematic hero mobile */
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+
+    .glass-card {
+        padding: 1.5rem !important;
     }
 }
 
@@ -738,4 +783,64 @@ section {
 
 .mt-2 {
     margin-top: 2rem;
+}
+
+/* ========================================
+   Cinematic Effects
+   ======================================== */
+,
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Cinematic Vignette (Shadowed edges) */
+.vignette {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* Cinematic Spotlight Glow */
+.spotlight {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(59, 130, 246, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+/* Selection styling */
+::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: #ffffffblue);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
 }
