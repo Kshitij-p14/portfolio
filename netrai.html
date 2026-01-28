@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NETRAI - Road Accident Detection System">
+    <title>NETRAI: Road Accident Detection | Kshitij Panchal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .project-header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .project-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-header .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+        
+        .project-header .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+            color: #10b981;
+            margin-bottom: 2rem;
+        }
+        
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .project-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+        
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .project-details {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+        
+        .detail-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+        }
+        
+        .detail-section p {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .label {
+            font-size: 0.875rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            transition: gap 0.3s;
+        }
+        
+        .back-link:hover {
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2rem;
+            }
+            
+            .project-header .subtitle {
+                font-size: 1rem;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>Kshitij Panchal</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <a href="index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <div class="badge">
+                <i class="fas fa-circle" style="color: #10b981; font-size: 0.5rem; animation: pulse 2s infinite;"></i>
+                LIVE PROJECT • 83.3% F1-SCORE
+            </div>
+            <h1><i class="fas fa-video"></i> NETRAI</h1>
+            <p class="subtitle">Real-time Road Accident Detection System</p>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-container">
+        <div class="video-wrapper">
+            <video controls autoplay muted loop>
+                <source src="public/netrai-demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="project-actions">
+        <a href="https://github.com/Kshitij-p14/NETRAI" target="_blank" class="action-btn btn-primary">
+            <i class="fab fa-github"></i> View GitHub Repository
+        </a>
+        <a href="index.html#contact" class="action-btn btn-secondary">
+            <i class="fas fa-envelope"></i> Contact for Demo
+        </a>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="detail-section">
+            <h2>About NETRAI</h2>
+            <p>
+                NETRAI is a cutting-edge real-time road accident detection system that leverages advanced 
+                computer vision and artificial intelligence to analyze CCTV footage and automatically detect 
+                vehicular accidents as they occur.
+            </p>
+            <p>
+                Using YOLOv12 for object detection and Gemini 2 Flash for intelligent analysis, NETRAI 
+                provides instant notifications and detailed incident reports, enabling faster emergency 
+                response times and potentially saving lives.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Performance Metrics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">83.3%</div>
+                    <div class="label">F1-Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Real-time</div>
+                    <div class="label">Processing</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">YOLOv12</div>
+                    <div class="label">Detection Model</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Firebase</div>
+                    <div class="label">Cloud Backend</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Features</h2>
+            <p>
+                • <strong>Real-time CCTV Analysis:</strong> Continuous monitoring and instant detection<br>
+                • <strong>YOLOv12 Object Detection:</strong> State-of-the-art computer vision<br>
+                • <strong>Gemini 2 Flash Integration:</strong> AI-powered incident analysis<br>
+                • <strong>Firebase Backend:</strong> Scalable cloud infrastructure<br>
+                • <strong>Instant Notifications:</strong> Immediate alerts to emergency services<br>
+                • <strong>Detailed Reports:</strong> Comprehensive incident documentation
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">YOLOv12</span>
+                <span class="tech-tag">Gemini 2 Flash</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Deep Learning</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">Real-time Processing</span>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Impact</h2>
+            <p>
+                NETRAI has the potential to revolutionize traffic safety management by providing:
+            </p>
+            <p>
+                • <strong>Faster Emergency Response:</strong> Reduced response times through instant detection<br>
+                • <strong>Life-Saving Technology:</strong> Early intervention in critical situations<br>
+                • <strong>Traffic Management:</strong> Better understanding of accident patterns<br>
+                • <strong>Data-Driven Insights:</strong> Analytics for road safety improvements
+            </p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
